@@ -28,6 +28,7 @@ const SupportForm: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const categories = [
     { value: 'printing', label: 'Problème d\'impression', icon: Printer },
@@ -49,12 +50,30 @@ const SupportForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
     
-    // Simulation d'envoi
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      // Remplacez cette URL par l'URL de votre backend PHP
+      const response = await fetch('https://votre-backend.com/send.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitted(true);
+      } else {
+        setError(result.message || 'Une erreur est survenue lors de l\'envoi de votre demande.');
+      }
+    } catch (err) {
+      setError('Erreur de connexion. Veuillez vérifier votre connexion internet et réessayer.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -72,6 +91,7 @@ const SupportForm: React.FC = () => {
         <button
           onClick={() => {
             setSubmitted(false);
+            setError(null);
             setFormData({
               firstName: '',
               lastName: '',
@@ -102,6 +122,16 @@ const SupportForm: React.FC = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="p-8 space-y-6">
+        {/* Message d'erreur */}
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+            <div className="flex items-center">
+              <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+              <p className="text-red-800 text-sm">{error}</p>
+            </div>
+          </div>
+        )}
+
         {/* Informations personnelles */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
