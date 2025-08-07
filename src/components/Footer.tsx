@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-3 text-sm text-gray-400">
                 <Phone className="w-4 h-4" />
-                <span>01 23 45 67 89</span>
+                <span>01 84 79 33 79</span>
               </div>
               <div className="flex items-center space-x-3 text-sm text-gray-400">
                 <MapPin className="w-4 h-4" />
@@ -41,12 +41,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Horaires de support</h4>
             <div className="space-y-2 text-sm text-gray-400">
-              <div>Lundi - Vendredi: 8h00 - 18h00</div>
-              <div>Samedi: 9h00 - 12h00</div>
-              <div>Dimanche: Fermé</div>
-              <div className="mt-3 text-xs text-gray-500">
-                Support d'urgence disponible 24h/7j pour les clients premium
-              </div>
+              <div>Lundi - Vendredi: 9h00 - 18h00</div>
             </div>
           </div>
         </div>
