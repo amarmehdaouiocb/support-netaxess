@@ -113,6 +113,15 @@ const SupportForm: React.FC = () => {
   }
 
   return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Centre de Support Technique
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Rencontrez-vous un problème avec votre solution informatique ? 
+              Notre équipe d'experts est là pour vous aider rapidement et efficacement.
+            </p>
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
         <h2 className="text-2xl font-bold text-white mb-2">Demande de Support Technique</h2>
@@ -322,6 +331,8 @@ const SupportForm: React.FC = () => {
         </div>
       </form>
     </div>
+      </div>
+  </div>
   );
 };
 
