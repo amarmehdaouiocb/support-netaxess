@@ -54,7 +54,7 @@ const SupportForm: React.FC = () => {
     
     try {
       // Remplacez cette URL par l'URL de votre backend PHP
-      const response = await fetch('https://votre-backend.com/send.php', {
+      const response = await fetch('send.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
