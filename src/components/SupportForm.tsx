@@ -122,6 +122,7 @@ const SupportForm: React.FC = () => {
               Rencontrez-vous un problème avec votre solution informatique ? 
               Notre équipe d'experts est là pour vous aider rapidement et efficacement.
             </p>
+          <SupportForm />
     <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
         <h2 className="text-2xl font-bold text-white mb-2">Demande de Support Technique</h2>
